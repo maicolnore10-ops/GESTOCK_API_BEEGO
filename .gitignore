@@ -1,0 +1,36 @@
+# Binarios compilados de Go (Los ejecutables que genera bee run)
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+GESTOCK_API_BEEGO
+GESTOCK_API_BEEGO.exe
+
+# Archivos de empaquetado y herramientas de desarrollo
+/vendor/
+/obj/
+/bin/
+
+# Configuraciones locales y variables de entorno sensibles
+.env
+# Opcional: Si en tu app.conf manejas contraseñas reales quemadas, puedes ignorarlo
+# conf/app.conf
+
+# Archivos temporales y logs de Beego
+/views/
+lastupdates.txt
+*.log
+
+# Carpetas de configuración del editor de código (VS Code)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
