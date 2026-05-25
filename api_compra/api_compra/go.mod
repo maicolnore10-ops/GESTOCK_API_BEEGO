@@ -1,0 +1,3 @@
+module GESTOCK_API_BEEGO
+
+go 1.26.2

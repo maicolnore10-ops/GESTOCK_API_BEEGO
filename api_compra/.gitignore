@@ -1,0 +1,29 @@
+# Variables de entorno - NUNCA subir al repositorio
+.env
+
+# Dependencias
+vendor/
+
+# Binarios compilados
+*.exe
+*.out
+dist/
+build/
+
+# Logs
+*.log
+*.tmp
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Archivos de test coverage
+*.coverprofile
+coverage.out
