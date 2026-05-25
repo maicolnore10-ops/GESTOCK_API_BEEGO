@@ -1,0 +1,619 @@
+swagger: "2.0"
+info:
+  title: GESTOCK API
+  description: |
+    API de autenticacion y gestion de usuarios para GESTOCK
+  version: 1.0.0
+  termsOfService: http://gestock.com/
+  contact:
+    email: soporte@gestock.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /contrasena_hash/:
+    get:
+      tags:
+      - contrasena_hash
+      description: |-
+        get ContrasenaHash
+        <br>
+      operationId: ContrasenaHashController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.ContrasenaHash'
+        "403":
+          description: ""
+    post:
+      tags:
+      - contrasena_hash
+      description: |-
+        create ContrasenaHash
+        <br>
+      operationId: ContrasenaHashController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for ContrasenaHash content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ContrasenaHash'
+      responses:
+        "201":
+          description: '{int} models.ContrasenaHash'
+        "403":
+          description: body is empty
+  /contrasena_hash/{id}:
+    get:
+      tags:
+      - contrasena_hash
+      description: |-
+        get ContrasenaHash by id
+        <br>
+      operationId: ContrasenaHashController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.ContrasenaHash'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - contrasena_hash
+      description: |-
+        update the ContrasenaHash
+        <br>
+      operationId: ContrasenaHashController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for ContrasenaHash content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ContrasenaHash'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.ContrasenaHash'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - contrasena_hash
+      description: |-
+        delete the ContrasenaHash
+        <br>
+      operationId: ContrasenaHashController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /recuperacion_contrasena/:
+    get:
+      tags:
+      - recuperacion_contrasena
+      description: |-
+        get RecuperacionContrasena
+        <br>
+      operationId: RecuperacionContrasenaController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RecuperacionContrasena'
+        "403":
+          description: ""
+    post:
+      tags:
+      - recuperacion_contrasena
+      description: |-
+        create RecuperacionContrasena
+        <br>
+      operationId: RecuperacionContrasenaController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for RecuperacionContrasena content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RecuperacionContrasena'
+      responses:
+        "201":
+          description: '{int} models.RecuperacionContrasena'
+        "403":
+          description: body is empty
+  /recuperacion_contrasena/{id}:
+    get:
+      tags:
+      - recuperacion_contrasena
+      description: |-
+        get RecuperacionContrasena by id
+        <br>
+      operationId: RecuperacionContrasenaController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RecuperacionContrasena'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - recuperacion_contrasena
+      description: |-
+        update the RecuperacionContrasena
+        <br>
+      operationId: RecuperacionContrasenaController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for RecuperacionContrasena content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RecuperacionContrasena'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.RecuperacionContrasena'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - recuperacion_contrasena
+      description: |-
+        delete the RecuperacionContrasena
+        <br>
+      operationId: RecuperacionContrasenaController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /roles/:
+    get:
+      tags:
+      - roles
+      description: |-
+        get Roles
+        <br>
+      operationId: RolesController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Roles'
+        "403":
+          description: ""
+    post:
+      tags:
+      - roles
+      description: |-
+        create Roles
+        <br>
+      operationId: RolesController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Roles content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Roles'
+      responses:
+        "201":
+          description: '{int} models.Roles'
+        "403":
+          description: body is empty
+  /roles/{id}:
+    get:
+      tags:
+      - roles
+      description: |-
+        get Roles by id
+        <br>
+      operationId: RolesController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Roles'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - roles
+      description: |-
+        update the Roles
+        <br>
+      operationId: RolesController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Roles content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Roles'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Roles'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - roles
+      description: |-
+        delete the Roles
+        <br>
+      operationId: RolesController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /usuarios/:
+    get:
+      tags:
+      - usuarios
+      description: |-
+        get Usuarios
+        <br>
+      operationId: UsuariosController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Usuarios'
+        "403":
+          description: ""
+    post:
+      tags:
+      - usuarios
+      description: |-
+        create Usuarios
+        <br>
+      operationId: UsuariosController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Usuarios content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Usuarios'
+      responses:
+        "201":
+          description: '{int} models.Usuarios'
+        "403":
+          description: body is empty
+  /usuarios/{id}:
+    get:
+      tags:
+      - usuarios
+      description: |-
+        get Usuarios by id
+        <br>
+      operationId: UsuariosController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Usuarios'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - usuarios
+      description: |-
+        update the Usuarios
+        <br>
+      operationId: UsuariosController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Usuarios content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Usuarios'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Usuarios'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - usuarios
+      description: |-
+        delete the Usuarios
+        <br>
+      operationId: UsuariosController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+definitions:
+  models.ContrasenaHash:
+    title: ContrasenaHash
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      ContrasenaHash:
+        type: string
+      FechaActualizacion:
+        type: string
+        format: datetime
+      FechaCreacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      IdUsuario:
+        $ref: '#/definitions/models.Usuarios'
+  models.RecuperacionContrasena:
+    title: RecuperacionContrasena
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      CodigoVerificacion:
+        type: string
+      FechaActualizacion:
+        type: string
+        format: datetime
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaExpiracion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      IdUsuario:
+        $ref: '#/definitions/models.Usuarios'
+      Usado:
+        type: boolean
+  models.Roles:
+    title: Roles
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      FechaActualizacion:
+        type: string
+        format: datetime
+      FechaCreacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      NombreRol:
+        type: string
+  models.Usuarios:
+    title: Usuarios
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      Apellidos:
+        type: string
+      Correo:
+        type: string
+      Documento:
+        type: integer
+        format: int64
+      FechaActualizacion:
+        type: string
+        format: datetime
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaNacimiento:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      IdRol:
+        $ref: '#/definitions/models.Roles'
+      Nombres:
+        type: string
+      Telefono:
+        type: string
+tags:
+- name: roles
+  description: |
+    RolesController operations for Roles
+- name: usuarios
+  description: |
+    UsuariosController operations for Usuarios
+- name: contrasena_hash
+  description: |
+    ContrasenaHashController operations for ContrasenaHash
+- name: recuperacion_contrasena
+  description: |
+    RecuperacionContrasenaController operations for RecuperacionContrasena

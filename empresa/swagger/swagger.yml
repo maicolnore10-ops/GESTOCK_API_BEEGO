@@ -1,0 +1,608 @@
+swagger: "2.0"
+info:
+  title: EMPRESA API
+  description: |
+    API de gestión de empresa, bodegas, moneda y unidades de medida
+  version: 1.0.0
+  termsOfService: http://empresa.com/
+  contact:
+    email: soporte@empresa.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /bodegas/:
+    get:
+      tags:
+      - bodegas
+      description: |-
+        get Bodegas
+        <br>
+      operationId: BodegasController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Bodegas'
+        "403":
+          description: ""
+    post:
+      tags:
+      - bodegas
+      description: |-
+        create Bodegas
+        <br>
+      operationId: BodegasController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Bodegas content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Bodegas'
+      responses:
+        "201":
+          description: '{int} models.Bodegas'
+        "403":
+          description: body is empty
+  /bodegas/{id}:
+    get:
+      tags:
+      - bodegas
+      description: |-
+        get Bodegas by id
+        <br>
+      operationId: BodegasController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Bodegas'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - bodegas
+      description: |-
+        update the Bodegas
+        <br>
+      operationId: BodegasController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Bodegas content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Bodegas'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Bodegas'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - bodegas
+      description: |-
+        delete the Bodegas
+        <br>
+      operationId: BodegasController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /empresas/:
+    get:
+      tags:
+      - empresas
+      description: |-
+        get Empresas
+        <br>
+      operationId: EmpresasController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Empresas'
+        "403":
+          description: ""
+    post:
+      tags:
+      - empresas
+      description: |-
+        create Empresas
+        <br>
+      operationId: EmpresasController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Empresas content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Empresas'
+      responses:
+        "201":
+          description: '{int} models.Empresas'
+        "403":
+          description: body is empty
+  /empresas/{id}:
+    get:
+      tags:
+      - empresas
+      description: |-
+        get Empresas by id
+        <br>
+      operationId: EmpresasController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Empresas'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - empresas
+      description: |-
+        update the Empresas
+        <br>
+      operationId: EmpresasController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Empresas content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Empresas'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Empresas'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - empresas
+      description: |-
+        delete the Empresas
+        <br>
+      operationId: EmpresasController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /moneda/:
+    get:
+      tags:
+      - moneda
+      description: |-
+        get Moneda
+        <br>
+      operationId: MonedaController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Moneda'
+        "403":
+          description: ""
+    post:
+      tags:
+      - moneda
+      description: |-
+        create Moneda
+        <br>
+      operationId: MonedaController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Moneda content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Moneda'
+      responses:
+        "201":
+          description: '{int} models.Moneda'
+        "403":
+          description: body is empty
+  /moneda/{id}:
+    get:
+      tags:
+      - moneda
+      description: |-
+        get Moneda by id
+        <br>
+      operationId: MonedaController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Moneda'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - moneda
+      description: |-
+        update the Moneda
+        <br>
+      operationId: MonedaController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Moneda content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Moneda'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Moneda'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - moneda
+      description: |-
+        delete the Moneda
+        <br>
+      operationId: MonedaController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /unidades_medida/:
+    get:
+      tags:
+      - unidades_medida
+      description: |-
+        get UnidadesMedida
+        <br>
+      operationId: UnidadesMedidaController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.UnidadesMedida'
+        "403":
+          description: ""
+    post:
+      tags:
+      - unidades_medida
+      description: |-
+        create UnidadesMedida
+        <br>
+      operationId: UnidadesMedidaController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for UnidadesMedida content
+        required: true
+        schema:
+          $ref: '#/definitions/models.UnidadesMedida'
+      responses:
+        "201":
+          description: '{int} models.UnidadesMedida'
+        "403":
+          description: body is empty
+  /unidades_medida/{id}:
+    get:
+      tags:
+      - unidades_medida
+      description: |-
+        get UnidadesMedida by id
+        <br>
+      operationId: UnidadesMedidaController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.UnidadesMedida'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - unidades_medida
+      description: |-
+        update the UnidadesMedida
+        <br>
+      operationId: UnidadesMedidaController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for UnidadesMedida content
+        required: true
+        schema:
+          $ref: '#/definitions/models.UnidadesMedida'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.UnidadesMedida'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - unidades_medida
+      description: |-
+        delete the UnidadesMedida
+        <br>
+      operationId: UnidadesMedidaController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+definitions:
+  models.Bodegas:
+    title: Bodegas
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      CapacidadMaxima:
+        type: integer
+        format: int64
+      Direccion:
+        type: string
+      FechaActualizacion:
+        type: string
+        format: datetime
+      FechaCreacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      IdEmpresa:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+  models.Empresas:
+    title: Empresas
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      Correo:
+        type: string
+      FechaActualizacion:
+        type: string
+        format: datetime
+      FechaCreacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      NombreEmpresa:
+        type: string
+  models.Moneda:
+    title: Moneda
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      FechaActualizacion:
+        type: string
+        format: datetime
+      FechaCreacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      TipoMoneda:
+        type: string
+  models.UnidadesMedida:
+    title: UnidadesMedida
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      FechaActualizacion:
+        type: string
+        format: datetime
+      FechaCreacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+      Sigla:
+        type: string
+tags:
+- name: empresas
+  description: |
+    EmpresasController operations for Empresas
+- name: bodegas
+  description: |
+    BodegasController operations for Bodegas
+- name: moneda
+  description: |
+    MonedaController operations for Moneda
+- name: unidades_medida
+  description: |
+    UnidadesMedidaController operations for UnidadesMedida
