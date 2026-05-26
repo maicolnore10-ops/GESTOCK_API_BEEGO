@@ -1,0 +1,96 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API Configuración",
+    "description": "API REST para gestionar la configuración del sistema, seguridad, backups y notificaciones",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Soporte API",
+      "email": "soporte@example.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:8082",
+  "basePath": "/",
+  "schemes": ["http", "https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/sistema": {
+      "get": {
+        "summary": "Listar todos los sistemas",
+        "tags": ["Sistema"],
+        "responses": {
+          "200": {
+            "description": "Lista de sistemas"
+          }
+        }
+      },
+      "post": {
+        "summary": "Crear un nuevo sistema",
+        "tags": ["Sistema"],
+        "parameters": [{"name": "body", "in": "body", "required": true, "schema": {"$ref": "#/definitions/Sistema"}}],
+        "responses": {
+          "201": {"description": "Sistema creado"},
+          "400": {"description": "Datos inválidos"}
+        }
+      }
+    },
+    "/sistema/{id}": {
+      "get": {
+        "summary": "Obtener sistema por ID",
+        "tags": ["Sistema"],
+        "parameters": [{"name": "id", "in": "path", "required": true, "type": "integer"}],
+        "responses": {"200": {"description": "Sistema"}, "404": {"description": "No encontrado"}}
+      },
+      "put": {
+        "summary": "Actualizar sistema",
+        "tags": ["Sistema"],
+        "parameters": [{"name": "id", "in": "path", "required": true, "type": "integer"}, {"name": "body", "in": "body", "required": true, "schema": {"$ref": "#/definitions/Sistema"}}],
+        "responses": {"200": {"description": "Actualizado"}, "404": {"description": "No encontrado"}}
+      },
+      "delete": {
+        "summary": "Eliminar sistema",
+        "tags": ["Sistema"],
+        "parameters": [{"name": "id", "in": "path", "required": true, "type": "integer"}],
+        "responses": {"200": {"description": "Eliminado"}, "404": {"description": "No encontrado"}}
+      }
+    },
+    "/backup": {
+      "get": {"summary": "Listar backups", "tags": ["Backup"], "responses": {"200": {"description": "Lista de backups"}}},
+      "post": {"summary": "Crear backup", "tags": ["Backup"], "parameters": [{"name": "body", "in": "body", "required": true, "schema": {"$ref": "#/definitions/Backup"}}], "responses": {"201": {"description": "Backup creado"}, "400": {"description": "Datos inválidos"}}}
+    },
+    "/backup/{id}": {
+      "get": {"summary": "Obtener backup por ID", "tags": ["Backup"], "parameters": [{"name": "id", "in": "path", "required": true, "type": "integer"}], "responses": {"200": {"description": "Backup"}, "404": {"description": "No encontrado"}}},
+      "put": {"summary": "Actualizar backup", "tags": ["Backup"], "parameters": [{"name": "id", "in": "path", "required": true, "type": "integer"}, {"name": "body", "in": "body", "required": true, "schema": {"$ref": "#/definitions/Backup"}}], "responses": {"200": {"description": "Actualizado"}, "404": {"description": "No encontrado"}}},
+      "delete": {"summary": "Eliminar backup", "tags": ["Backup"], "parameters": [{"name": "id", "in": "path", "required": true, "type": "integer"}], "responses": {"200": {"description": "Eliminado"}, "404": {"description": "No encontrado"}}}
+    },
+    "/notificacion": {
+      "get": {"summary": "Listar notificaciones", "tags": ["Notificacion"], "responses": {"200": {"description": "Lista de notificaciones"}}},
+      "post": {"summary": "Crear notificación", "tags": ["Notificacion"], "parameters": [{"name": "body", "in": "body", "required": true, "schema": {"$ref": "#/definitions/Notificacion"}}], "responses": {"201": {"description": "Notificación creada"}, "400": {"description": "Datos inválidos"}}}
+    },
+    "/notificacion/{id}": {
+      "get": {"summary": "Obtener notificación por ID", "tags": ["Notificacion"], "parameters": [{"name": "id", "in": "path", "required": true, "type": "integer"}], "responses": {"200": {"description": "Notificación"}, "404": {"description": "No encontrado"}}},
+      "put": {"summary": "Actualizar notificación", "tags": ["Notificacion"], "parameters": [{"name": "id", "in": "path", "required": true, "type": "integer"}, {"name": "body", "in": "body", "required": true, "schema": {"$ref": "#/definitions/Notificacion"}}], "responses": {"200": {"description": "Actualizado"}, "404": {"description": "No encontrado"}}},
+      "delete": {"summary": "Eliminar notificación", "tags": ["Notificacion"], "parameters": [{"name": "id", "in": "path", "required": true, "type": "integer"}], "responses": {"200": {"description": "Eliminado"}, "404": {"description": "No encontrado"}}}
+    },
+    "/seguridad": {
+      "get": {"summary": "Listar configuraciones de seguridad", "tags": ["Seguridad"], "responses": {"200": {"description": "Lista de configuraciones"}}},
+      "post": {"summary": "Crear configuración de seguridad", "tags": ["Seguridad"], "parameters": [{"name": "body", "in": "body", "required": true, "schema": {"$ref": "#/definitions/Seguridad"}}], "responses": {"201": {"description": "Configuración creada"}, "400": {"description": "Datos inválidos"}}}
+    },
+    "/seguridad/{id}": {
+      "get": {"summary": "Obtener configuración de seguridad por ID", "tags": ["Seguridad"], "parameters": [{"name": "id", "in": "path", "required": true, "type": "integer"}], "responses": {"200": {"description": "Configuración"}, "404": {"description": "No encontrado"}}},
+      "put": {"summary": "Actualizar configuración de seguridad", "tags": ["Seguridad"], "parameters": [{"name": "id", "in": "path", "required": true, "type": "integer"}, {"name": "body", "in": "body", "required": true, "schema": {"$ref": "#/definitions/Seguridad"}}], "responses": {"200": {"description": "Actualizado"}, "404": {"description": "No encontrado"}}},
+      "delete": {"summary": "Eliminar configuración de seguridad", "tags": ["Seguridad"], "parameters": [{"name": "id", "in": "path", "required": true, "type": "integer"}], "responses": {"200": {"description": "Eliminado"}, "404": {"description": "No encontrado"}}}
+    }
+  },
+  "definitions": {
+    "Sistema": {"type": "object", "required": ["NombreEmpresa", "Correo"], "properties": {"id": {"type": "integer"}, "NombreEmpresa": {"type": "string"}, "Correo": {"type": "string"}, "Descripcion": {"type": "string"}, "Activo": {"type": "boolean"}}},
+    "Backup": {"type": "object", "required": ["NombreBackup", "TipoBackup"], "properties": {"Id": {"type": "integer"}, "NombreBackup": {"type": "string"}, "TipoBackup": {"type": "string"}, "FechaEjecucion": {"type": "string", "format": "date-time"}, "Estado": {"type": "string"}, "Activo": {"type": "boolean"}}},
+    "Notificacion": {"type": "object", "required": ["Titulo", "Tipo"], "properties": {"Id": {"type": "integer"}, "Titulo": {"type": "string"}, "Descripcion": {"type": "string"}, "Tipo": {"type": "string"}, "Canal": {"type": "string"}, "Estado": {"type": "string"}, "Activo": {"type": "boolean"}}},
+    "Seguridad": {"type": "object", "required": ["TipoAutenticacion"], "properties": {"Id": {"type": "integer"}, "TipoAutenticacion": {"type": "string"}, "RequiereAutenticacion": {"type": "boolean"}, "RequeiereTwoFactor": {"type": "boolean"}, "EncriptacionDatos": {"type": "boolean"}, "Activo": {"type": "boolean"}}}
+  }
+}
